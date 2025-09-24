@@ -50,12 +50,35 @@ python sentiment_gui.py
 ```
 
 ### Usage
-1. Launch the application using the script above
-2. Click "Browse File" and select your Excel/CSV file
-3. Choose the text column for analysis
-4. Select appropriate AI model for your use case
-5. Click "Start Analysis" and monitor progress
-6. Review results and export back to Excel/CSV
+
+**Step 1: Launch Application**
+```bash
+./LAUNCH_SENTIMENT_ANALYSIS.sh
+```
+
+**Step 2: Load Your Data**
+- Click "Select Excel/CSV File" in the File & Setup tab
+- Choose your data file (try the included `Child_Support_Customer_Service_Survey.xlsx` sample)
+- Preview your data in the "Data Preview" tab
+
+**Step 3: Configure Analysis**
+- Select the text column you want to analyze (e.g., "CustomerFeedback")
+- The output column name will auto-generate (e.g., "CustomerFeedback_sentiment_results")
+- Choose your AI model:
+  - **TextBlob**: Fast, good for general text
+  - **VADER**: Best for social media/informal text
+  - **DistilBERT**: Balanced accuracy and speed
+  - **RoBERTa**: Highest accuracy, slower
+
+**Step 4: Run Analysis**
+- Click "🚀 Start Analysis"
+- Monitor real-time progress
+- View results summary in the "Results" tab
+
+**Step 5: Export Results**
+- Save enhanced Excel file with sentiment columns added
+- Copy analysis summary to clipboard
+- Original data preserved with new sentiment columns added
 
 ## AI Models
 
@@ -70,11 +93,33 @@ python sentiment_gui.py
 
 The tool adds sentiment analysis columns to your original data:
 
-| Original Text | AI_Sentiment | AI_Sentiment_Score | AI_Sentiment_Confidence |
-|---------------|--------------|-------------------|------------------------|
-| "Service was terrible" | Negative | -0.8 | 0.95 |
+| Original Text | CustomerFeedback_sentiment_results | CustomerFeedback_sentiment_results_score | CustomerFeedback_sentiment_results_confidence |
+|---------------|-----------------------------------|----------------------------------------|---------------------------------------------|
+| "Service was terrible" | Negative | 0.8 | 0.95 |
 | "Thank you for help" | Positive | 0.7 | 0.89 |
 | "Need more information" | Neutral | 0.1 | 0.76 |
+
+## Sample Workflow
+
+**Try with the included sample data:**
+
+1. **Launch the application**: `./LAUNCH_SENTIMENT_ANALYSIS.sh`
+2. **Load sample file**: Select `Child_Support_Customer_Service_Survey.xlsx`
+3. **Choose column**: Select "CustomerFeedback" from dropdown
+4. **Output naming**: Will auto-generate "CustomerFeedback_sentiment_results"
+5. **Select model**: Choose "VADER" for customer feedback analysis
+6. **Run analysis**: Click "🚀 Start Analysis" and watch progress
+7. **Review results**: Check the Results tab for statistics
+8. **Export**: Save the enhanced Excel file with sentiment columns
+
+**Expected Results:**
+- 40 customer feedback entries analyzed
+- Sentiment distribution (Positive/Negative/Neutral percentages)
+- Confidence scores for each prediction
+- New Excel file with 3 additional columns:
+  - `CustomerFeedback_sentiment_results` (Positive/Negative/Neutral)
+  - `CustomerFeedback_sentiment_results_score` (numerical score)
+  - `CustomerFeedback_sentiment_results_confidence` (confidence level)
 
 ## Security & Privacy
 
