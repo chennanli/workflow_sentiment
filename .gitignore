@@ -51,6 +51,8 @@ Thumbs.db
 # Data files (temporary/output)
 *_sentiment_analysis_*.xlsx
 *_sentiment_analysis_*.csv
+*_results_*.xlsx
+*_results_*.csv
 temp_*.xlsx
 temp_*.csv
 output_*.xlsx
